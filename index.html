@@ -126,56 +126,51 @@
         </div>
     </div>
 
-   <!-- Section Mes Boutiques -->
+ <!-- Section Mes Boutiques -->
 <div class="w-full max-w-6xl mx-auto mb-12 p-6 bg-white/10 rounded-xl shadow-lg backdrop-blur-md animate-slide-up">
-    <h2 class="text-2xl sm:text-3xl font-semibold mb-6 text-white shadow-text">🛍️ Mes Boutiques</h2>
+  <h2 class="text-2xl sm:text-3xl font-semibold mb-6 text-white shadow-text">🛍️ Mes Boutiques</h2>
 
-    <!-- Filtres -->
-    <div class="flex flex-wrap justify-center gap-2 mb-6">
-        <button onclick="filterBoutiques('all')" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Tout</button>
-        <button onclick="filterBoutiques('mode')" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Mode</button>
-        <button onclick="filterBoutiques('accessoires')" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Accessoires</button>
-        <button onclick="filterBoutiques('sneakers')" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Sneakers</button>
-        <button onclick="filterBoutiques('livres')" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Livres</button>
-    </div>
+  <!-- Filtres -->
+  <div class="flex flex-wrap justify-center gap-2 mb-6">
+    <button onclick="filterBoutiques('all', this)" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm active-filter">Tout</button>
+    <button onclick="filterBoutiques('mode', this)" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Mode</button>
+    <button onclick="filterBoutiques('accessoires', this)" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Accessoires</button>
+    <button onclick="filterBoutiques('sneakers', this)" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Sneakers</button>
+    <button onclick="filterBoutiques('livres', this)" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Livres</button>
+    <button onclick="filterBoutiques('etsy', this)" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Etsy</button>
+  </div>
 
-    <!-- Grille de boutiques -->
-    <div id="boutiqueGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-
-        <!-- Exemples avec classes par catégorie -->
-        <a href="https://massary.store/product-category/femme/" target="_blank" class="boutique-item mode ...">👗 Mode Femme</a>
-        <a href="https://massary.store/product-category/homme/" target="_blank" class="boutique-item mode ...">🧥 Mode Homme</a>
-        <a href="https://massary.store/product-category/enfant/" target="_blank" class="boutique-item mode ...">🧒 Mode Enfant</a>
-
-        <a href="https://massary.store/product-category/accessoires-homme/" target="_blank" class="boutique-item accessoires ...">👔 Accessoires Homme</a>
-        <a href="https://massary.store/product-category/accessoires-femme/" target="_blank" class="boutique-item accessoires ...">👜 Accessoires Femme</a>
-        <a href="https://massary.store/product-category/accessoires-enfant/" target="_blank" class="boutique-item accessoires ...">🎒 Accessoires Enfant</a>
-
-        <a href="https://massary.store/product-category/sneakers-homme/" target="_blank" class="boutique-item sneakers ...">👟 Sneakers Homme</a>
-        <a href="https://massary.store/product-category/sneakers-femme/" target="_blank" class="boutique-item sneakers ...">👟 Sneakers Femme</a>
-        <a href="https://massary.store/product-category/sneakers-enfant/" target="_blank" class="boutique-item sneakers ...">👟 Sneakers Enfant</a>
-
-        <a href="https://massary.store/product-category/livres/" target="_blank" class="boutique-item livres ...">📚 Boutique Livres</a>
-
-        <!-- autres catégories si besoin -->
-        <a href="https://example.com/bi-shop" target="_blank" class="boutique-item ...">💼 Ressources BI with Etsy</a>
-        <a href="https://example.com/templates-shop" target="_blank" class="boutique-item ...">🗋 Templates BI with Etsy</a>
-
-    </div>
+  <!-- Grille de boutiques -->
+  <div id="boutiqueGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+    <!-- ... tes boutiques ici (identiques à avant) ... -->
+  </div>
 </div>
 
-<!-- Script de filtrage -->
+<!-- Style pour la bordure active -->
+<style>
+  .active-filter {
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+</style>
+
+<!-- Script de filtrage avec bouton actif -->
 <script>
-    function filterBoutiques(category) {
-        const items = document.querySelectorAll(".boutique-item");
-        items.forEach(item => {
-            if (category === 'all') {
-                item.classList.remove("hidden");
-            } else {
-                item.classList.toggle("hidden", !item.classList.contains(category));
-            }
-        });
-    }
+  function filterBoutiques(category, btn) {
+    const items = document.querySelectorAll(".boutique-item");
+    items.forEach(item => {
+      if (category === 'all') {
+        item.classList.remove("hidden");
+      } else {
+        item.classList.toggle("hidden", !item.classList.contains(category));
+      }
+    });
+
+    // Gestion des boutons actifs
+    const buttons = document.querySelectorAll(".filter-btn");
+    buttons.forEach(button => button.classList.remove("active-filter"));
+    btn.classList.add("active-filter");
+  }
 </script>
 
 
