@@ -126,30 +126,58 @@
         </div>
     </div>
 
-    <!-- Section Mes Boutiques -->
-    <div class="w-full max-w-6xl mx-auto mb-12 p-6 bg-white/10 rounded-xl shadow-lg backdrop-blur-md animate-slide-up">
-        <h2 class="text-2xl sm:text-3xl font-semibold mb-6 text-white shadow-text">🛍️ Mes Boutiques</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
-            <a href="https://example.com/bi-shop" target="_blank" class="group flex items-center justify-center gap-2 px-3 py-1.5 text-sm bg-pink-500 text-white rounded-full shadow-md transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-pink-600 w-full max-w-xs">
-                <span class="text-xl transform transition-transform group-hover:scale-110">💼</span> Ressources BI with Etsy
-            </a>
-            <a href="https://example.com/templates-shop" target="_blank" class="group flex items-center justify-center gap-2 px-3 py-1.5 text-sm bg-yellow-500 text-white rounded-full shadow-md transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-yellow-600 w-full max-w-xs">
-                <span class="text-xl transform transition-transform group-hover:scale-110">🗋</span> Templates BI with Etsy
-            </a>
-            <a href="https://massary.store/product-category/femme/" target="_blank" class="group flex items-center justify-center gap-2 px-3 py-1.5 text-sm bg-red-500 text-white rounded-full shadow-md transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-red-600 w-full max-w-xs">
-                <span class="text-xl transform transition-transform group-hover:scale-110">👗</span> Mode Femme
-            </a>
-            <a href="https://massary.store/product-category/homme/" target="_blank" class="group flex items-center justify-center gap-2 px-3 py-1.5 text-sm bg-blue-500 text-white rounded-full shadow-md transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-blue-600 w-full max-w-xs">
-                <span class="text-xl transform transition-transform group-hover:scale-110">🧥</span> Mode Homme
-            </a>
-            <a href="https://example.com/accessoires" target="_blank" class="group flex items-center justify-center gap-2 px-3 py-1.5 text-sm bg-green-600 text-white rounded-full shadow-md transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-green-700 w-full max-w-xs">
-                <span class="text-xl transform transition-transform group-hover:scale-110">🌂</span> Accessoires
-            </a>
-            <a href="https://example.com/sneakers" target="_blank" class="group flex items-center justify-center gap-2 px-3 py-1.5 text-sm bg-purple-600 text-white rounded-full shadow-md transform transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:bg-purple-700 w-full max-w-xs">
-                <span class="text-xl transform transition-transform group-hover:scale-110">👟</span> Sneakers
-            </a>
-        </div>
+   <!-- Section Mes Boutiques -->
+<div class="w-full max-w-6xl mx-auto mb-12 p-6 bg-white/10 rounded-xl shadow-lg backdrop-blur-md animate-slide-up">
+    <h2 class="text-2xl sm:text-3xl font-semibold mb-6 text-white shadow-text">🛍️ Mes Boutiques</h2>
+
+    <!-- Filtres -->
+    <div class="flex flex-wrap justify-center gap-2 mb-6">
+        <button onclick="filterBoutiques('all')" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Tout</button>
+        <button onclick="filterBoutiques('mode')" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Mode</button>
+        <button onclick="filterBoutiques('accessoires')" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Accessoires</button>
+        <button onclick="filterBoutiques('sneakers')" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Sneakers</button>
+        <button onclick="filterBoutiques('livres')" class="filter-btn bg-white/20 hover:bg-white/30 text-white px-4 py-1.5 rounded-full text-sm">Livres</button>
     </div>
+
+    <!-- Grille de boutiques -->
+    <div id="boutiqueGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
+
+        <!-- Exemples avec classes par catégorie -->
+        <a href="https://massary.store/product-category/femme/" target="_blank" class="boutique-item mode ...">👗 Mode Femme</a>
+        <a href="https://massary.store/product-category/homme/" target="_blank" class="boutique-item mode ...">🧥 Mode Homme</a>
+        <a href="https://massary.store/product-category/enfant/" target="_blank" class="boutique-item mode ...">🧒 Mode Enfant</a>
+
+        <a href="https://massary.store/product-category/accessoires-homme/" target="_blank" class="boutique-item accessoires ...">👔 Accessoires Homme</a>
+        <a href="https://massary.store/product-category/accessoires-femme/" target="_blank" class="boutique-item accessoires ...">👜 Accessoires Femme</a>
+        <a href="https://massary.store/product-category/accessoires-enfant/" target="_blank" class="boutique-item accessoires ...">🎒 Accessoires Enfant</a>
+
+        <a href="https://massary.store/product-category/sneakers-homme/" target="_blank" class="boutique-item sneakers ...">👟 Sneakers Homme</a>
+        <a href="https://massary.store/product-category/sneakers-femme/" target="_blank" class="boutique-item sneakers ...">👟 Sneakers Femme</a>
+        <a href="https://massary.store/product-category/sneakers-enfant/" target="_blank" class="boutique-item sneakers ...">👟 Sneakers Enfant</a>
+
+        <a href="https://massary.store/product-category/livres/" target="_blank" class="boutique-item livres ...">📚 Boutique Livres</a>
+
+        <!-- autres catégories si besoin -->
+        <a href="https://example.com/bi-shop" target="_blank" class="boutique-item ...">💼 Ressources BI with Etsy</a>
+        <a href="https://example.com/templates-shop" target="_blank" class="boutique-item ...">🗋 Templates BI with Etsy</a>
+
+    </div>
+</div>
+
+<!-- Script de filtrage -->
+<script>
+    function filterBoutiques(category) {
+        const items = document.querySelectorAll(".boutique-item");
+        items.forEach(item => {
+            if (category === 'all') {
+                item.classList.remove("hidden");
+            } else {
+                item.classList.toggle("hidden", !item.classList.contains(category));
+            }
+        });
+    }
+</script>
+
 
     <!-- Section Mes Services -->
     <div class="w-full max-w-6xl mx-auto mb-12 p-6 bg-white/10 rounded-xl shadow-lg backdrop-blur-md animate-slide-up">
